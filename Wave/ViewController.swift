@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var playBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let alert = UIAlertController(title: "Error", message: "This device does not have a camera.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default Action."), style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
         }
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -40,6 +39,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.camera
         self.present(picker, animated: true, completion: nil)
+        playBtn.isHidden = false
     }
     
     @IBAction func selectPhoto(_ sender: Any) {
@@ -48,7 +48,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
         self.present(picker, animated: true, completion: nil)
+        playBtn.isHidden = false
     }
-    
 }
 
