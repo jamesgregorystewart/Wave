@@ -27,6 +27,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let chosenImage: UIImage = info[UIImagePickerControllerEditedImage] as! UIImage
         self.imageView.image = chosenImage
         picker.dismiss(animated: true, completion: nil)
+        playBtn.isHidden = false
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -39,7 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.camera
         self.present(picker, animated: true, completion: nil)
-        playBtn.isHidden = false
     }
     
     @IBAction func selectPhoto(_ sender: Any) {
@@ -48,7 +48,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
         self.present(picker, animated: true, completion: nil)
-        playBtn.isHidden = false
     }
 }
 
