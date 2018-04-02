@@ -28,6 +28,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = chosenImage
         picker.dismiss(animated: true, completion: nil)
         playBtn.isHidden = false
+        playBtn.isEnabled = true
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -48,6 +49,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
         self.present(picker, animated: true, completion: nil)
+    }
+    
+    @IBAction func playMusic(_ sender: Any) {
+        print("Play button pressed")
     }
 }
 
